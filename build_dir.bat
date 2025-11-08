@@ -17,12 +17,6 @@ if %ERRORLEVEL% EQU 0 (
         echo [OK] README.txt copied
     )
 
-    REM Copy app.ico
-    if exist assets\app.ico (
-        copy /Y assets\app.ico dist\VideoSpellChecker\app.ico
-        echo [OK] app.ico copied
-    )
-
     REM Copy dictionaries folder
     if exist dictionaries (
         xcopy /E /I /Y dictionaries dist\VideoSpellChecker\dictionaries
