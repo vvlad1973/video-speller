@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Video Spell Checker
+Comment=Автоматическая проверка орфографии в видео
+Comment[en]=Automatic spell checking in videos
+Exec=/usr/local/bin/VideoSpellChecker/VideoSpellChecker
+Icon=/usr/local/bin/VideoSpellChecker/app.ico
+Terminal=false
+Categories=AudioVideo;Video;Utility;
+Keywords=video;spell;checker;ocr;subtitle;
+StartupNotify=true
+MimeType=video/mp4;video/x-msvideo;video/quicktime;video/x-matroska;
