@@ -39,7 +39,7 @@ class VideoSpellChecker:
             print("OK Русский словарь загружен")
         except Exception as e:
             print(f"WARNING Не удалось загрузить русский словарь: {e}")
-            print(f"   Запустите: python download_dictionaries.py")
+            print(f"   Запустите: python -m src.download_dictionaries")
             self.spell_ru = None
 
         try:
@@ -48,7 +48,7 @@ class VideoSpellChecker:
             print("OK Английский словарь загружен")
         except Exception as e:
             print(f"WARNING Не удалось загрузить английский словарь: {e}")
-            print(f"   Запустите: python download_dictionaries.py")
+            print(f"   Запустите: python -m src.download_dictionaries")
             self.spell_en = None
 
         print("OK Словари для проверки орфографии загружены")

@@ -13,17 +13,14 @@ if [ $? -eq 0 ]; then
     echo "============================================"
 
     # Copy README (Linux version)
-    if [ -f "README_LINUX.txt" ]; then
-        cp -f README_LINUX.txt dist/README.txt
+    if [ -f "docs/README_LINUX.txt" ]; then
+        cp -f docs/README_LINUX.txt dist/README.txt
         echo "[OK] README.txt copied (Linux version)"
-    elif [ -f "README_EXE.txt" ]; then
-        cp -f README_EXE.txt dist/README.txt
-        echo "[OK] README.txt copied"
     fi
 
     # Copy app.ico
-    if [ -f "app.ico" ]; then
-        cp -f app.ico dist/app.ico
+    if [ -f "assets/app.ico" ]; then
+        cp -f assets/app.ico dist/app.ico
         echo "[OK] app.ico copied"
     fi
 

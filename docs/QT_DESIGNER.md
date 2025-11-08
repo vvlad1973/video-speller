@@ -52,16 +52,18 @@ main_window.ui
 
 1. Сохраните файл `main_window.ui` (Ctrl+S)
 2. Закройте Qt Designer
-3. Запустите приложение: `python gui.py`
+3. Запустите приложение: `python main.py`
 
 ## Структура проекта
 
 ```bash
 video-speller/
-├── gui.py                  # Основной файл GUI (использует Qt Designer)
-├── gui_widgets.py          # Вспомогательные виджеты и классы
-├── main_window.ui          # UI файл для Qt Designer
-└── video_speller.py        # Основная логика проверки орфографии
+├── main.py                 # Основной файл GUI (точка входа)
+├── src/
+│   ├── gui_widgets.py      # Вспомогательные виджеты и классы
+│   └── video_speller.py    # Основная логика проверки орфографии
+└── ui/
+    └── main_window.ui      # UI файл для Qt Designer
 ```
 
 ## Важные замечания
@@ -73,7 +75,7 @@ video-speller/
 - `startTimeInput` - QTimeEdit для начального времени анализа
 - `endTimeInput` - QTimeEdit для конечного времени анализа
 
-При запуске приложения эти виджеты **автоматически заменяются** на `SmartTimeEdit` (наследник QTimeEdit с поддержкой автоматического переключения разрядов времени) в методе `setup_time_widgets()` файла [gui.py](gui.py).
+При запуске приложения эти виджеты **автоматически заменяются** на `SmartTimeEdit` (наследник QTimeEdit с поддержкой автоматического переключения разрядов времени) в методе `setup_time_widgets()` файла [main.py](../main.py).
 
 **Важно:** Не меняйте тип этих виджетов в Qt Designer - оставляйте их как `QTimeEdit`. Замена происходит программно.
 
@@ -140,7 +142,7 @@ QLabel {
 ## Запуск
 
 ```bash
-python gui.py
+python main.py
 ```
 
 GUI использует Qt Designer для визуального редактирования интерфейса.

@@ -4,7 +4,7 @@
 import sys
 from pathlib import Path
 from PyQt6.QtCore import QThread, pyqtSignal
-from video_speller import VideoSpellChecker
+from src.video_speller import VideoSpellChecker
 
 
 def get_app_dir():
@@ -13,8 +13,8 @@ def get_app_dir():
         # Запущено из exe (PyInstaller)
         return Path(sys.executable).parent
     else:
-        # Запущено из .py
-        return Path(__file__).parent
+        # Запущено из .py - возвращаем корень проекта (родитель src/)
+        return Path(__file__).parent.parent
 
 
 class WorkerThread(QThread):
@@ -119,7 +119,7 @@ class VideoSpellCheckerWithLogging(VideoSpellChecker):
         else:
             # Словарь не найден - GUI предложит загрузить через диалог
             self.log(f"⚠ {display_name} словарь не найден")
-            self.log(f"ℹ Для автоматической загрузки словарей используйте download_dictionaries.py")
+            self.log(f"ℹ Для автоматической загрузки словарей используйте: python -m src.download_dictionaries")
             return None
 
     def _load_custom_dictionary(self, dict_path):

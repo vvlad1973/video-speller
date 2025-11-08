@@ -1,5 +1,10 @@
 # Video Spell Checker
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)
+![PyQt6](https://img.shields.io/badge/GUI-PyQt6-green.svg)
+
 Автоматическая проверка орфографии в видео. Программа извлекает кадры из видео, распознает текст и находит орфографические ошибки на русском и английском языках.
 
 ## Возможности
@@ -98,10 +103,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # 4. Скачайте словари для проверки орфографии
-python download_dictionaries.py
+python -m src.download_dictionaries
 
 # 5. Запустите приложение
-python gui.py
+python main.py
 ```
 
 ### Вариант 2: Простая установка (только Python библиотеки)
@@ -111,7 +116,7 @@ python gui.py
 pip install -r requirements.txt
 
 # 2. Скачайте словари для проверки орфографии
-python download_dictionaries.py
+python -m src.download_dictionaries
 ```
 
 **Вот и всё!** Никаких дополнительных программ устанавливать не нужно.
@@ -149,10 +154,10 @@ python download_dictionaries.py
    pip install -r requirements.txt
 
    # Скачайте словари (если их нет)
-   python download_dictionaries.py
+   python -m src.download_dictionaries
    ```
 
-3. **Готово!** Запускайте `python gui.py`
+3. **Готово!** Запускайте `python main.py`
 
 **Важно:** Файлы которые нужно скопировать:
 
@@ -176,7 +181,7 @@ python download_dictionaries.py
 ### GUI версия (рекомендуется)
 
 ```bash
-python gui.py
+python main.py
 ```
 
 Откроется графическое окно где вы можете:

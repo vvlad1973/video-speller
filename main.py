@@ -11,7 +11,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QTextCursor, QPixmap, QImage, QIcon
-from gui_widgets import WorkerThread
+from src.gui_widgets import WorkerThread
 from PyQt6.QtWidgets import QTimeEdit
 from PyQt6.QtCore import QTime
 
@@ -94,12 +94,12 @@ class VideoSpellCheckerGUI(QMainWindow):
         self.config_file = get_app_dir() / "config.ini"  # Путь к файлу конфигурации
 
         # Устанавливаем иконку приложения
-        icon_path = get_resource_path("app.ico")
+        icon_path = get_resource_path("assets/app.ico")
         if icon_path.exists():
             self.setWindowIcon(QIcon(str(icon_path)))
 
         # Загружаем UI из файла
-        ui_file = get_resource_path("main_window.ui")
+        ui_file = get_resource_path("ui/main_window.ui")
         uic.loadUi(ui_file, self)
 
         # Инициализируем кастомные виджеты для времени
@@ -360,7 +360,7 @@ class VideoSpellCheckerGUI(QMainWindow):
                     self,
                     "Информация",
                     "Обработка продолжится без проверки орфографии.\n"
-                    "Для загрузки словарей используйте download_dictionaries.py",
+                    "Для загрузки словарей используйте: python -m src.download_dictionaries",
                 )
                 return True
 
@@ -426,7 +426,7 @@ class VideoSpellCheckerGUI(QMainWindow):
                     self,
                     "Ошибка",
                     "Ошибка при загрузке словарей.\n\n"
-                    "Проверьте подключение к интернету или используйте download_dictionaries.py вручную",
+                    "Проверьте подключение к интернету или используйте: python -m src.download_dictionaries",
                 )
                 return False
 
@@ -435,7 +435,7 @@ class VideoSpellCheckerGUI(QMainWindow):
                 self,
                 "Ошибка",
                 f"Не удалось загрузить словари:\n{str(e)}\n\n"
-                "Используйте download_dictionaries.py вручную",
+                "Используйте: python -m src.download_dictionaries",
             )
             return False
 
@@ -611,7 +611,7 @@ class VideoSpellCheckerGUI(QMainWindow):
 
         # Создаем диалог и загружаем UI
         dialog = QDialog(self)
-        about_ui_file = get_resource_path("about_dialog.ui")
+        about_ui_file = get_resource_path("ui/about_dialog.ui")
         uic.loadUi(about_ui_file, dialog)
 
         # Показываем диалог
@@ -691,11 +691,20 @@ class VideoSpellCheckerGUI(QMainWindow):
 
 def main():
     """Запуск приложения"""
+    # Windows-specific: Set App User Model ID для корректного отображения иконки в панели задач
+    if sys.platform == 'win32':
+        try:
+            import ctypes
+            myappid = 'video.spellchecker.app.1.0'  # произвольный идентификатор приложения
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+        except:
+            pass
+
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
 
     # Устанавливаем иконку для всего приложения
-    icon_path = get_resource_path("app.ico")
+    icon_path = get_resource_path("assets/app.ico")
     if icon_path.exists():
         app.setWindowIcon(QIcon(str(icon_path)))
 

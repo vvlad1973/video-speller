@@ -7,7 +7,7 @@
 pip install -r requirements.txt
 
 # 2. Скачайте словари
-python download_dictionaries.py
+python -m src.download_dictionaries
 ```
 
 ## Использование
@@ -15,7 +15,7 @@ python download_dictionaries.py
 ### Графический интерфейс (рекомендуется)
 
 ```bash
-python gui.py
+python main.py
 ```
 
 1. Нажмите "Обзор" и выберите видео

@@ -248,10 +248,10 @@ chmod +x VideoSpellChecker
 ════════════════════════════
 
 Полная документация:
-https://github.com/your-repo/video-speller
+https://github.com/vvlad1973/video-speller
 
 Сообщить об ошибке:
-https://github.com/your-repo/video-speller/issues
+https://github.com/vvlad1973/video-speller/issues
 
 Лицензия: MIT License with Commercial Use
           (для коммерческого использования требуется согласование с автором)

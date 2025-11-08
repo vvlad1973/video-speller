@@ -12,14 +12,14 @@ if %ERRORLEVEL% EQU 0 (
     echo ============================================
 
     REM Copy README
-    if exist README_EXE.txt (
-        copy /Y README_EXE.txt dist\README.txt
+    if exist docs\README.txt (
+        copy /Y docs\README.txt dist\README.txt
         echo [OK] README.txt copied
     )
 
     REM Copy app.ico
-    if exist app.ico (
-        copy /Y app.ico dist\app.ico
+    if exist assets\app.ico (
+        copy /Y assets\app.ico dist\app.ico
         echo [OK] app.ico copied
     )
 

@@ -5,15 +5,15 @@
 block_cipher = None
 
 a = Analysis(
-    ['gui.py'],
+    ['main.py'],
     pathex=[],
     binaries=[],
     datas=[
-        ('main_window.ui', '.'),
-        ('about_dialog.ui', '.'),
-        ('app.ico', '.'),
+        ('ui/main_window.ui', 'ui'),
+        ('ui/about_dialog.ui', 'ui'),
+        ('assets/app.ico', 'assets'),
         ('custom_dictionary.txt', '.'),
-        ('README.txt', '.'),
+        ('docs/README.txt', '.'),
         ('dictionaries', 'dictionaries'),
     ],
     hiddenimports=[
@@ -46,7 +46,7 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 # Создаём splash-экран
 splash = Splash(
-    'splash.png',
+    'assets/splash.png',
     binaries=a.binaries,
     datas=a.datas,
     text_pos=(200, 260),
@@ -73,7 +73,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='app.ico',  # Иконка приложения
+    icon='assets/app.ico',  # Иконка приложения
 )
 
 # Собираем всё в директорию
