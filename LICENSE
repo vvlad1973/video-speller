@@ -1,19 +1,151 @@
-# MIT License with Commercial Use
+# DUAL LICENSE
 
-Copyright (c) 2022 Vladislav Vnukovskiy
+Video Spell Checker
+Copyright (c) 2025 Vladislav Vnukovskiy
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
+This software is available under TWO licensing options. You may choose either:
 
-Commercial Use:
+================================================================================
 
-The user is allowed to use the Software for commercial purposes, subject to the following conditions:
+OPTION 1: GNU GENERAL PUBLIC LICENSE v3 (GPL v3)
 
-The user must agree to share a portion of their revenue with the author of the Software.
+================================================================================
 
-The author of the Software reserves the right to verify the accuracy and size of the revenue earned by the user through the use of the Software. This provision is a mandatory condition for the commercial use of the Software.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-If the user does not agree to these conditions, they may not use the Software for commercial purposes.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+IMPORTANT GPL v3 CONDITIONS:
+
+- You MUST disclose your source code if you distribute this software
+- Your derivative works MUST also be licensed under GPL v3
+- You MUST include copyright and license notices
+- You MUST state significant changes made to the software
+
+This option is suitable for:
+
+- Open source projects
+- Educational purposes
+- Personal non-commercial use
+- When you are willing to share your source code
+
+For the full text of GPL v3, visit: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
+
+================================================================================
+
+OPTION 2: COMMERCIAL LICENSE
+
+================================================================================
+
+For use where you do NOT wish to comply with GPL v3 requirements
+(i.e., you want to keep your source code proprietary and/or create
+closed-source commercial products), you must obtain a Commercial License.
+
+COMMERCIAL LICENSE TERMS:
+
+1. PROPRIETARY USE PERMITTED
+   You may create closed-source, proprietary applications without
+   disclosing your source code.
+
+2. REVENUE SHARING REQUIREMENT
+   You must agree to share a portion of your revenue with the author.
+   The specific revenue sharing percentage will be negotiated and
+   documented in a separate commercial license agreement.
+
+3. REVENUE VERIFICATION
+   The author reserves the right to verify the accuracy and size of
+   revenue earned through use of this software. This is a mandatory
+   condition for commercial use.
+
+4. NO GPL OBLIGATIONS
+   You are NOT required to:
+   - Disclose your source code
+   - License your derivative works under GPL
+   - Distribute this license with your products
+
+5. CONTACT FOR COMMERCIAL LICENSE
+   To obtain a Commercial License, contact:
+
+   Vladislav Vnukovskiy
+   Email: [YOUR EMAIL HERE]
+
+   Please include:
+   - Description of your intended use
+   - Estimated project revenue or business model
+   - Number of developers/users
+
+This option is suitable for:
+
+- Commercial products and services
+- SaaS applications
+- Proprietary software
+- When you want to keep your source code private
+
+================================================================================
+
+CHOOSING YOUR LICENSE
+
+================================================================================
+
+YOU MUST CHOOSE ONE LICENSE:
+
+- If you use this software under GPL v3, you MUST comply with ALL GPL v3 terms
+  (including source code disclosure and GPL v3 licensing of your work)
+
+- If you use this software under Commercial License, you MUST obtain written
+  permission from the copyright holder and agree to revenue sharing terms
+
+You CANNOT:
+
+- Use this software commercially without either disclosing source (GPL) or
+  obtaining a Commercial License
+- Mix both licenses for the same project
+- Remove or modify this license notice
+
+================================================================================
+
+DEPENDENCIES AND THIRD-PARTY LICENSES
+
+================================================================================
+
+This software uses the following third-party libraries:
+
+- PyQt6: GPL v3 [https://www.riverbankcomputing.com/software/pyqt/](https://www.riverbankcomputing.com/software/pyqt/)
+- NumPy: BSD 3-Clause
+- OpenCV-Python: Apache 2.0
+- EasyOCR: Apache 2.0
+- PyTorch: BSD 3-Clause
+- TorchVision: BSD 3-Clause
+- Spylls: MPL 2.0
+
+If you choose the GPL v3 option, all GPL requirements apply.
+If you choose the Commercial License, ensure compliance with all
+third-party licenses (particularly PyQt6 GPL v3 - you may need
+a separate commercial PyQt license from Riverbank Computing).
+
+================================================================================
+
+NO WARRANTY
+
+================================================================================
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+For questions about licensing, contact: [vvlad1973@gmail.com](mailto://vvlad1973@gmail.com)
