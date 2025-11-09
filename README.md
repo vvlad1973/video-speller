@@ -333,6 +333,8 @@ pip install torch==2.4.0 torchvision==0.19.0 --index-url https://download.pytorc
 
 ## Создание EXE сборки (для разработчиков)
 
+### Сборка на Windows
+
 Чтобы создать portable EXE версию приложения:
 
 ```bash
@@ -350,6 +352,58 @@ pyinstaller --clean video_speller_one_file.spec
 build_dir.bat
 # или вручную:
 pyinstaller --clean video_speller_dir.spec
+```
+
+### Сборка на Linux
+
+Чтобы создать portable версию для Linux:
+
+```bash
+# 1. Установите PyInstaller и системные зависимости
+pip install pyinstaller
+
+# Примечание: Splash-экран недоступен на Linux из-за ограничений tkinter в venv
+# Сборка будет выполнена без splash-экрана
+
+# 2. Выберите режим сборки:
+
+# Вариант A: ONE FILE (монолитная сборка)
+./build_one_file.sh
+# или вручную:
+pyinstaller --clean video_speller_one_file.spec
+
+# Вариант B: ONE DIR (немонолитная сборка) - рекомендуется для Linux
+./build_dir.sh
+# или вручную:
+pyinstaller --clean video_speller_dir.spec
+```
+
+**Примечание:** На Linux splash-экран отключен автоматически из-за проблем совместимости tkinter с виртуальными окружениями.
+
+### Установка на Linux (после сборки)
+
+После сборки на Linux вы можете установить приложение в систему для удобного запуска:
+
+```bash
+cd dist/  # или dist/VideoSpellChecker/ для ONE DIR версии
+./install_linux.sh
+```
+
+Скрипт установки автоматически:
+- Установит приложение в `~/.local/bin/VideoSpellChecker/`
+- Установит PNG иконки в системную директорию `~/.local/share/icons/`
+- Создаст .desktop файл для меню приложений
+- Обновит кэш иконок и базу приложений
+
+После установки приложение можно запустить:
+- Из меню приложений (Video Spell Checker)
+- Из терминала: `~/.local/bin/VideoSpellChecker/VideoSpellChecker`
+
+**Удаление:**
+```bash
+rm -rf ~/.local/bin/VideoSpellChecker
+rm -f ~/.local/share/applications/VideoSpellChecker.desktop
+rm -f ~/.local/share/icons/hicolor/*/apps/VideoSpellChecker.png
 ```
 
 ### Готовые bat-файлы для сборки
@@ -370,10 +424,11 @@ pyinstaller --clean video_speller_dir.spec
 Spec-файлы уже настроены и включают:
 
 - Иконку приложения (`app.ico`)
-- **Splash-экран** (`splash.png`) - показывается во время распаковки
+- **Splash-экран** (`splash.png`) - показывается во время распаковки (только Windows)
 - UI файлы (`.ui`)
 - Пользовательский словарь
 - Все необходимые библиотеки
+- Автоматическое определение платформы (Windows/Linux)
 
 ### Выбор режима сборки
 
@@ -388,8 +443,8 @@ pyinstaller --clean video_speller_one_file.spec
 - Всё упаковано в один EXE файл
 - Проще распространять
 - Медленнее первый запуск (распаковка во временную папку)
-- Размер: ~239 MB
-- Результат: `dist/VideoSpellChecker.exe`
+- Размер: ~239 MB (Windows), ~500-700 MB (Linux)
+- Результат: `dist/VideoSpellChecker.exe` или `dist/VideoSpellChecker`
 
 **ONE DIR (немонолитная сборка):**
 
@@ -404,7 +459,10 @@ pyinstaller --clean video_speller_dir.spec
 - Размер: ~1.5 GB (распакованные библиотеки)
 - Результат: `dist/VideoSpellChecker/` (директория)
 
-**Примечание:** Размер итоговой сборки большой из-за PyTorch и других ML библиотек.
+**Примечание:**
+
+- Размер итоговой сборки большой из-за PyTorch и других ML библиотек
+- Linux-сборки больше Windows из-за необходимости упаковывать системные библиотеки для портативности
 
 ### Структура dist после сборки
 
@@ -412,10 +470,14 @@ pyinstaller --clean video_speller_dir.spec
 
 ```text
 dist/
-├── VideoSpellChecker.exe   # Основное приложение (239 MB)
-├── README.txt              # Инструкция для пользователей
-├── app.ico                 # Иконка приложения
-└── dictionaries/           # Словари для проверки орфографии
+├── VideoSpellChecker[.exe]     # Основное приложение (239 MB Windows / 500-700 MB Linux)
+├── README.txt                  # Инструкция для пользователей
+├── app.ico                     # Иконка приложения (Windows)
+├── app.png                     # Иконка приложения (Linux, 256x256)
+├── app-256px.png              # Дополнительная иконка (Linux)
+├── install_linux.sh           # Скрипт установки (Linux)
+├── VideoSpellChecker.desktop  # Desktop entry файл (Linux)
+└── dictionaries/              # Словари для проверки орфографии
     ├── ru_RU.aff
     ├── ru_RU.dic
     ├── en_US.aff
@@ -426,9 +488,13 @@ dist/
 
 ```text
 dist/VideoSpellChecker/
-├── VideoSpellChecker.exe   # Основное приложение
-├── README.txt              # Инструкция для пользователей
-├── app.ico                 # Иконка приложения
+├── VideoSpellChecker[.exe]     # Основное приложение
+├── README.txt                  # Инструкция для пользователей
+├── app.ico                     # Иконка приложения (Windows)
+├── app.png                     # Иконка приложения (Linux, 256x256)
+├── app-256px.png              # Дополнительная иконка (Linux)
+├── install_linux.sh           # Скрипт установки (Linux)
+├── VideoSpellChecker.desktop  # Desktop entry файл (Linux)
 ├── dictionaries/           # Словари для проверки орфографии
 ├── _internal/              # Библиотеки и зависимости
 └── ... (множество DLL и файлов библиотек)
@@ -461,6 +527,33 @@ img.save('splash.png')
 ```
 
 Splash-экран автоматически закрывается после полной загрузки приложения.
+
+### Создание иконок для Linux
+
+Проект включает скрипт для конвертации `.ico` иконки в PNG форматы для Linux:
+
+```bash
+python convert_icon.py
+```
+
+Этот скрипт создаст:
+- `assets/app.png` (256x256) - основная иконка
+- `assets/app_256.png` (256x256)
+- `assets/app_128.png` (128x128)
+- `assets/app_48.png` (48x48)
+
+PNG иконки автоматически копируются в dist при сборке на Linux и используются скриптом установки `install_linux.sh`.
+
+**Создание собственных иконок:**
+
+Если вы хотите использовать свою иконку:
+
+1. Создайте PNG изображения нужных размеров (48x48, 128x128, 256x256)
+2. Сохраните их в папку `assets/` с именами `app-48px.png`, `app-128px.png`, `app-256px.png`
+3. Создайте основную иконку `assets/app.png` (256x256)
+4. Пересоберите приложение
+
+Иконки будут автоматически включены в сборку и установлены при запуске `install_linux.sh`.
 
 ## Лицензия
 

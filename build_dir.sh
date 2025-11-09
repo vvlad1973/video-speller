@@ -25,6 +25,16 @@ if [ $? -eq 0 ]; then
         echo "[OK] app.ico copied"
     fi
 
+    # Copy PNG icons for Linux
+    if [ -f "assets/app.png" ]; then
+        cp -f assets/app.png dist/VideoSpellChecker/app.png
+        echo "[OK] app.png copied"
+    fi
+    if [ -f "assets/app-256px.png" ]; then
+        cp -f assets/app-256px.png dist/VideoSpellChecker/app-256px.png
+        echo "[OK] app-256px.png copied"
+    fi
+
     # Copy dictionaries folder
     if [ -d "dictionaries" ]; then
         cp -rf dictionaries dist/VideoSpellChecker/
@@ -35,6 +45,13 @@ if [ $? -eq 0 ]; then
     if [ -f "VideoSpellChecker.desktop" ]; then
         cp -f VideoSpellChecker.desktop dist/VideoSpellChecker/
         echo "[OK] VideoSpellChecker.desktop copied"
+    fi
+
+    # Copy installation script
+    if [ -f "install_linux.sh" ]; then
+        cp -f install_linux.sh dist/VideoSpellChecker/
+        chmod +x dist/VideoSpellChecker/install_linux.sh
+        echo "[OK] install_linux.sh copied"
     fi
 
     # Make the binary executable
