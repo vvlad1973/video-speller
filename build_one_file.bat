@@ -11,10 +11,10 @@ if %ERRORLEVEL% EQU 0 (
     echo Copying additional files to dist...
     echo ============================================
 
-    REM Copy README
-    if exist docs\README.txt (
-        copy /Y docs\README.txt dist\README.txt
-        echo [OK] README.txt copied
+    REM Copy README (Windows version)
+    if exist docs\README_WINDOWS.txt (
+        copy /Y docs\README_WINDOWS.txt dist\README.txt
+        echo [OK] README.txt copied (Windows version)
     )
 
     REM Copy dictionaries folder

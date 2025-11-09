@@ -19,6 +19,16 @@ if [ $? -eq 0 ]; then
         echo "[OK] README.txt copied (Linux version)"
     fi
 
+    # Copy additional icon sizes for install script
+    if [ -f "assets/app-128px.png" ]; then
+        cp -f assets/app-128px.png dist/app-128px.png
+        echo "[OK] app-128px.png copied"
+    fi
+    if [ -f "assets/app-48px.png" ]; then
+        cp -f assets/app-48px.png dist/app-48px.png
+        echo "[OK] app-48px.png copied"
+    fi
+
     # Copy app.ico
     if [ -f "assets/app.ico" ]; then
         cp -f assets/app.ico dist/app.ico
