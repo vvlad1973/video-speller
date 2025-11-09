@@ -4,7 +4,8 @@ echo "Building ONE FILE version..."
 echo "============================================"
 echo
 
-pyinstaller --clean video_speller_one_file.spec
+# Используем Python из текущего окружения (venv)
+python -m PyInstaller --clean video_speller_one_file.spec
 
 if [ $? -eq 0 ]; then
     echo

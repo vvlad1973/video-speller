@@ -4,7 +4,8 @@ echo "Building ONE DIR version..."
 echo "============================================"
 echo
 
-pyinstaller --clean video_speller_dir.spec
+# Используем Python из текущего окружения (venv)
+python -m PyInstaller --clean video_speller_dir.spec
 
 if [ $? -eq 0 ]; then
     echo

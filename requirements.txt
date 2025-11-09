@@ -1,8 +1,10 @@
 numpy<2
 opencv-python>=4.8.0,<4.10
-opencv-python-headless>=4.8.0,<4.10
 easyocr>=1.7.0
 spylls>=0.1.7
+PyQt6>=6.6.0
+# PyTorch CPU-only version (significantly smaller size!)
+# --extra-index-url adds PyTorch repo WITHOUT replacing the default PyPI
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.4.0
 torchvision==0.19.0
-PyQt6>=6.6.0
